@@ -95,7 +95,6 @@ candidate_database = {
 # A list of the FinTech Finder candidates first names
 people = ["Lane", "Ash", "Jo", "Kendall"]
 
-
 def get_people():
     """Display the database of Fintech Finders candidate information."""
     db_list = list(candidate_database.values())
@@ -234,12 +233,10 @@ st.sidebar.markdown("## Total Wage in Ether")
 # Calculate total `wage` for the candidate by multiplying the candidate’s hourly
 # rate from the candidate database (`candidate_database[person][3]`) by the
 # value of the `hours` variable
-# YOUR CODE HERE
-
+wage = 1500 * hourly_rate
 # @TODO
 # Write the `wage` calculation to the Streamlit sidebar
-# YOUR CODE HERE
-
+st.sidebar.write("The wage is:", wage)
 ##########################################
 # Step 2 - Part 2:
 # * Call the `send_transaction` function and pass it three parameters:
@@ -265,7 +262,7 @@ if st.sidebar.button("Send Transaction"):
     # Call the `send_transaction` function and pass it 3 parameters:
     # Your `account`, the `candidate_address`, and the `wage` as parameters
     # Save the returned transaction hash as a variable named `transaction_hash`
-    # YOUR CODE HERE
+transaction_hash = send_transaction(account, candidate_address, wage)
 
     # Markdown for the transaction hash
     st.sidebar.markdown("#### Validated Transaction Hash")
